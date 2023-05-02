@@ -1,12 +1,15 @@
 {
-  "name": "staticrypt-test-app",
+  "name": "nextjs-staticrypt-example-app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview": "cd out/ && npx http-server",
+    "set-pass": "npx staticrypt out/index.html -p test-pass-example-foo -d out -c out/.staticrypt.json",
+    "build-and-preview": "yarn build && yarn set-pass && yarn preview"
   },
   "dependencies": {
     "@types/node": "18.16.3",
